@@ -1,27 +1,27 @@
-import React, {useState} from 'react';
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import './App.css';
 import NavBar from './components/NavBar/NavBar';
-import Header from './components/Header/Header';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import  CartWidget from './components/CartWidget/CartWidget';
+import ItemListContainer from './components/ItemListContainer/ItemListContainer';
+import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
+import ItemCount from './components/ItemCount/ItemCount';
 
 function App() {
-const [count, setCount] = useState(0);
-const [date, setDate] = useState(Date());
-const handlerClick = () => {
-  setCount(count + 1);
-  setDate(Date());
-};
-
 
   return (
+    <Router>
     <div className="App">
+      <Switch>
+        <ItemDetailContainer />
+      </Switch>
     <NavBar><CartWidget /></NavBar>
-    <div><Header /></div>
-    <label>{count}</label><br />
-    <label>{date}</label><br />
-    <button onClick={handlerClick}>click</button>
-    </div>
+    <Route exact path='/'>
+    <div><ItemListContainer titulo='hola'/></div>
+          </Route>
+     <ItemCount /> 
+     </div>
+    </Router>
   );
 }
 
