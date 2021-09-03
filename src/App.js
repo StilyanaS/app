@@ -19,7 +19,7 @@ function App() {
     <Route exact path='/'>
     <div><ItemListContainer titulo='hola'/></div>
           </Route>
-     <ItemCount /> 
+     <ItemCount stock={5} initial={1} onAdd={onAdd}/> 
      </div>
     </Router>
   );
