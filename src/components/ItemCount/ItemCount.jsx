@@ -1,7 +1,7 @@
 import Button from 'react-bootstrap/Button';
 import {useState} from 'react';
 
-const ItemCount = ({initial, stock, onAdd}) => {
+const ItemCount =  ({initial, stock, onAdd}) => {
 
         const [count, setCount] = useState(initial);
         const whenIncr = () => {
@@ -14,13 +14,12 @@ const ItemCount = ({initial, stock, onAdd}) => {
             if (count > initial){
                 setCount(count - 1);
             }
-          };
-        const handlerOnAdd = (count) => {
+          };   
+          const handlerOnAdd = (count) => {
             onAdd(count)
             setCount(initial)
-        }
-        
-        
+        }  
+         
 return (
     <div className='w-50'>
     <Button variant="primary" onClick={whenIncr}>+</Button>
