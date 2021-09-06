@@ -23,8 +23,11 @@ function onAdd() {
         </Route>
     <Route exact path='/'>
       <div><ItemListContainer titulo='hola'/></div>
+      <div><ItemDetailContainer /></div>
     </Route>
       </Switch>
+
+
       <ItemCount stock={5} initial={1} onAdd={onAdd}/> 
      
     </Router>
