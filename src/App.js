@@ -4,9 +4,7 @@ import NavBar from './components/NavBar/NavBar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import CartWidget from './components/CartWidget/CartWidget';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
-import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 import ItemCount from './components/ItemCount/ItemCount';
-
 function App() {
 
 function onAdd() {
@@ -18,15 +16,10 @@ function onAdd() {
     <Router>
     <NavBar><CartWidget /></NavBar>
        <Switch>
-        <Route exact path='/hola'>
-        <ItemDetailContainer />
-        </Route>
     <Route exact path='/'>
       <div><ItemListContainer titulo='hola'/></div>
-      <div><ItemDetailContainer /></div>
     </Route>
       </Switch>
-
 
       <ItemCount stock={5} initial={1} onAdd={onAdd}/> 
      
