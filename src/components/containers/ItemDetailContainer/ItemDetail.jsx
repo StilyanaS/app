@@ -1,6 +1,7 @@
-
+//import {useParams} from 'react-router-dom';
 
 function ItemDetail({product}) {
+
     
     return (
         <div className='card'>

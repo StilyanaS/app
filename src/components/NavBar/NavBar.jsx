@@ -1,23 +1,40 @@
-import {Link} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import Container from 'react-bootstrap/Container';
-
 import "./NavBar.css";
+import NavbarToggle from 'react-bootstrap/esm/NavbarToggle';
+import { BsFillBagFill } from "react-icons/bs";
 function NavBar(){
+
     return (
 <>
-  <Navbar bg="dark" variant="dark">
+  <Navbar bg="light" variant="light">
     <Container>
-    <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+      <NavLink to="/">
+    <Navbar.Brand href="#home">TennisApp</Navbar.Brand>
+      </NavLink>
+    <NavbarToggle aria-controls="responsive-navbar-nav" />
+    <Navbar.Collapse id="responsive-navbar-nav">
     <Nav className="me-auto">
-      <Nav.Link href="#home">Home</Nav.Link>
-      <Nav.Link href="#features">Features</Nav.Link>
-      <Nav.Link href="#pricing">Pricing</Nav.Link>
-      <Link to={`/contacto`}>Contacto</Link>
+      <Nav.Link href="#home">Inicio</Nav.Link>
+      <Nav.Link className="ml-2">
+      <NavLink to={`/categoria/babolat`}>Babolat</NavLink>
+      </ Nav.Link>
+      <Nav.Link className="ml-2">
+      <NavLink to={`/categoria/wilson`}>Wilson</NavLink>
+      </Nav.Link>
+      <Nav.Link className="ml-2">
+      <NavLink to={`/contacto`} className="">Contacto</NavLink>
+      </Nav.Link>
+      
     </Nav>
-    </Container>
-  </Navbar>
+  </Navbar.Collapse>
+  <Nav.Link className="ml-2">
+      <NavLink to={`/cart`} className=""><BsFillBagFill/></NavLink>
+      </Nav.Link>
+</Container>
+</Navbar>
 </>
 
     )
