@@ -10,8 +10,8 @@ export default function ItemDetailContainer() {
    // const [productDetail, setProductDetail] =useState({});
     //const id = props.match.params.id;
     const {id} = useParams();
-console.log(id);
     
+
 useEffect (() => {
    
 getProduct.then(resolve => {

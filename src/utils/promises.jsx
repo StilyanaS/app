@@ -21,7 +21,7 @@ export default function getProducts(id){
             }, 3000);  
         });
       
-const product = {id:1, name: 'Babolat Pure Strike', price: 100, url:'https://www.tennis-point.es/dw/image/v2/BBDP_PRD/on/demandware.static/-/Sites-master-catalog/default/dwea13ea7d/images/009/048/02700000_000.jpg?q=80&sw=640', description:'descripción corta'}
+//const product = {id:1, name: 'Babolat Pure Strike', price: 100, url:'https://www.tennis-point.es/dw/image/v2/BBDP_PRD/on/demandware.static/-/Sites-master-catalog/default/dwea13ea7d/images/009/048/02700000_000.jpg?q=80&sw=640', description:'descripción corta'}
         export const getProduct = new Promise ((resolve)=>{
             setTimeout(()=> {
                 resolve(products);
