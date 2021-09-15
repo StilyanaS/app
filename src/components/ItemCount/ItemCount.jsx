@@ -2,7 +2,7 @@ import Button from 'react-bootstrap/Button';
 import {useState} from 'react';
 import {Link} from 'react-router-dom';
 
-const ItemCount =  ({initial, stock, onAdd, custData}) => {
+const ItemCount =  ({initial, stock, onAdd, addItem}) => {
   const [changeButton, setButton] = useState(false);
 
         const [count, setCount] = useState(initial);
@@ -29,7 +29,7 @@ return (
     <label>{count}</label>
       <Button variant="primary" onClick={whenDecr}>-</Button>
       { changeButton ?
-    <Button variant="primary" onClick={()=>custData({}, count)}>Agregar</Button>:
+    <Button variant="primary" onClick={()=>addItem({producto1:'producto1', id='1'}, count)}>Agregar</Button>:
     
     <Link to={`/cart`}>
     <Button variant="primary" >Carrito</Button>

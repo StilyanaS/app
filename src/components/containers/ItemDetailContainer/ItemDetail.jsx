@@ -1,10 +1,11 @@
  import {useParams} from 'react-router-dom';
-import { cartContext } from '../../../context/CartContext';
+import { CartContext } from '../../../context/CartContext';
  import ItemCount from '../../ItemCount/ItemCount'
 
 function ItemDetail({product}) {
 const {id} = useParams();
-const {addToCart} = useContext(CartContext);
+const {addItem, clear} = useContext(CartContext);
+
     
     return (
         <div className='card'>
@@ -20,6 +21,7 @@ const {addToCart} = useContext(CartContext);
                 <label>{product.price}</label>
             </div>
             <ItemCount props={custData}/>
+            <button className='primary' onClick={clear}>Vaciar carrito</button>
 
         </div>
     )
