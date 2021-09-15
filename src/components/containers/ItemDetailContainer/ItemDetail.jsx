@@ -1,7 +1,10 @@
-//import {useParams} from 'react-router-dom';
+ import {useParams} from 'react-router-dom';
+import { cartContext } from '../../../context/CartContext';
+ import ItemCount from '../../ItemCount/ItemCount'
 
 function ItemDetail({product}) {
-
+const {id} = useParams();
+const {addToCart} = useContext(CartContext);
     
     return (
         <div className='card'>
@@ -16,6 +19,7 @@ function ItemDetail({product}) {
             <div className='card-footer'>
                 <label>{product.price}</label>
             </div>
+            <ItemCount props={custData}/>
 
         </div>
     )
