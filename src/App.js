@@ -15,6 +15,7 @@ function onAdd() {
 
   return (
     <div className="App">
+    <CartContext.Provider >
     <Router>
     <NavBar></NavBar>
        <Switch>
@@ -27,6 +28,7 @@ function onAdd() {
 
       <ItemCount stock={5} initial={1} onAdd={onAdd}/> 
     </Router>
+    </CartContext.Provider>
      </div>
   );
 }
