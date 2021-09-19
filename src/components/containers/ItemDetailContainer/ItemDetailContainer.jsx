@@ -15,7 +15,7 @@ export default function ItemDetailContainer() {
 useEffect (() => {
    
 getProduct.then(resolve => {
-    setProduct(resolve.find(i => id = i.id )); 
+    setProduct(resolve.find((i) => parseInt(id) === i.id)); 
     setLoading(false);
 });
 },[id]);

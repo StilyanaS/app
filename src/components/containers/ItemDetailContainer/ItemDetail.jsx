@@ -1,13 +1,17 @@
- import {useParams} from 'react-router-dom';
-import { CartContext } from '../../../context/CartContext';
- import ItemCount from '../../ItemCount/ItemCount'
+
+
+ import ItemCount from '../../ItemCount/ItemCount';
+
 
 function ItemDetail({product}) {
-const {id} = useParams();
-const {addItem, clear} = useContext(CartContext);
 
-    
+// const {addItem, clear, cart, removeItem} = useContext(CartContext);
+// const {id} = useParams();
+    const onAdd = (quant) => {
+        console.log(quant);
+    }
     return (
+        
         <div className='card'>
             <div className='card-header'>
                 <label>{product.name}</label>
@@ -20,8 +24,8 @@ const {addItem, clear} = useContext(CartContext);
             <div className='card-footer'>
                 <label>{product.price}</label>
             </div>
-            <ItemCount props={custData}/>
-            <button className='primary' onClick={clear}>Vaciar carrito</button>
+            <ItemCount initial = {1} stock = {5} onAdd = {onAdd}/>
+            {/* <button className='primary' onClick={clear}>Vaciar carrito</button> */}
 
         </div>
     )
