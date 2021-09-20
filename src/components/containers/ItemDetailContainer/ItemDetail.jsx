@@ -1,14 +1,15 @@
 
-
+import useCartContext from '../../../context/CartContext'
  import ItemCount from '../../ItemCount/ItemCount';
 
 
 function ItemDetail({product}) {
 
-// const {addItem, clear, cart, removeItem} = useContext(CartContext);
-// const {id} = useParams();
-    const onAdd = (quant) => {
+ const {addItem, clear, cart, removeItem, setAddedProduct} = useCartContext();
+
+    const onAdd = (quant, product) => {
         console.log(quant);
+        addItem(product, quant);
     }
     return (
         

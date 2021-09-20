@@ -1,8 +1,8 @@
 import {NavLink} from 'react-router-dom';
-//import React, {useContext} from 'react';
-//import CartContext from '../../context/CartContext';
+import useCartContext from '../../context/CartContext';
 function Item ({product}) {
-//const custData = useContext(CartContext);
+const custData = useCartContext();
+console.log(custData)
     return (
         <div key={product.id} className='card w-50'>
         <div className='card-header'>{product.name}</div>

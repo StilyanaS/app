@@ -21,7 +21,9 @@ const ItemCount =  ({initial, stock, onAdd, addItem}) => {
             onAdd(count);
             setCount(initial);
             setButton(false);
+            addItem()
         }  
+
          
 return (
     <div className='w-50'>
@@ -29,7 +31,7 @@ return (
     <label>{count}</label>
       <Button variant="primary" onClick={whenDecr}>-</Button>
       { changeButton ?
-    <Button variant="primary" onClick={handlerOnAdd}>Agregar</Button>:
+    <Button variant="primary" onClick={handlerOnAdd}>Comprar</Button>:
     <Link to={`/cart`}>
     <Button variant="primary" >Carrito</Button>
       </Link>

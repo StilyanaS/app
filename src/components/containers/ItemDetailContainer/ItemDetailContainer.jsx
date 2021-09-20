@@ -3,6 +3,7 @@ import {getProduct} from '../../../utils/promises';
 import ItemDetail from './ItemDetail';
 import {NavLink} from 'react-router-dom';
 import {useParams} from 'react-router-dom';
+import Spinner from 'react-bootstrap/Spinner';
 
 export default function ItemDetailContainer() {
     const [product, setProduct] = useState({});
@@ -24,7 +25,7 @@ getProduct.then(resolve => {
 
 return (
    <> {loading ?
-       <h2> Cargando productos</h2>
+       <Spinner animation="grow" variant="info"></Spinner>
        :
         <ItemDetail product={product} />
     }

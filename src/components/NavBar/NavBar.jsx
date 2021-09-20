@@ -5,8 +5,9 @@ import Container from 'react-bootstrap/Container';
 import "./NavBar.css";
 import NavbarToggle from 'react-bootstrap/esm/NavbarToggle';
 import { BsFillBagFill } from "react-icons/bs";
+import { useCartContext } from '../../context/CartContext';
 function NavBar(){
-
+const {iconItem} = useCartContext();
     return (
 <>
   <Navbar bg="light" variant="light">
@@ -31,7 +32,7 @@ function NavBar(){
     </Nav>
   </Navbar.Collapse>
   <Nav.Link className="ml-2">
-      <NavLink to={`/cart`} className=""><BsFillBagFill/></NavLink>
+      <NavLink to={`/cart`} className=""><BsFillBagFill/>{iconItem()}</NavLink>
       </Nav.Link>
 </Container>
 </Navbar>
