@@ -4,10 +4,10 @@ import Nav from 'react-bootstrap/Nav';
 import Container from 'react-bootstrap/Container';
 import "./NavBar.css";
 import NavbarToggle from 'react-bootstrap/esm/NavbarToggle';
-import { BsFillBagFill } from "react-icons/bs";
-import { useCartContext } from '../../context/CartContext';
+//import { BsFillBagFill } from "react-icons/bs";
+//import { useCartContext } from '../../context/CartContext';
 function NavBar(){
-const {iconItem} = useCartContext();
+//const {iconItem} = useCartContext();
     return (
 <>
   <Navbar bg="light" variant="light">
@@ -28,12 +28,11 @@ const {iconItem} = useCartContext();
       <Nav.Link className="ml-2">
       <NavLink to={`/contacto`} className="">Contacto</NavLink>
       </Nav.Link>
-      
     </Nav>
   </Navbar.Collapse>
-  <Nav.Link className="ml-2">
+  {/* <Nav.Link className="ml-2">
       <NavLink to={`/cart`} className=""><BsFillBagFill/>{iconItem()}</NavLink>
-      </Nav.Link>
+      </Nav.Link> */}
 </Container>
 </Navbar>
 </>

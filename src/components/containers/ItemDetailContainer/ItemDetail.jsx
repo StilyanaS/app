@@ -6,6 +6,9 @@ import useCartContext from '../../../context/CartContext'
 function ItemDetail({product}) {
 
  const {addItem, clear, cart, removeItem, setAddedProduct} = useCartContext();
+console.log(cart);
+console.log(removeItem);
+console.log(setAddedProduct);
 
     const onAdd = (quant, product) => {
         console.log(quant);
@@ -26,7 +29,7 @@ function ItemDetail({product}) {
                 <label>{product.price}</label>
             </div>
             <ItemCount initial = {1} stock = {5} onAdd = {onAdd}/>
-            {/* <button className='primary' onClick={clear}>Vaciar carrito</button> */}
+            <button className='primary' onClick={clear}>Vaciar carrito</button>
 
         </div>
     )
