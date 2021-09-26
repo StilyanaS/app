@@ -1,50 +1,46 @@
-import { useState, createContext, useContext} from 'react';
-
-const CartContext = createContext([]);
-
-export const useCartContext = () => useContext(CartContext);
+import {createContext} from 'react';
+import {useState} from 'react';
+export const CartContext = createContext();
 
 export const CartContextProvider = ({children}) => {
-    const  [cart, setCart] = useState([]);
-    
+
+// Ultimo añadido
+    // setea el array del Carrito
+    const  [cart, changedCart] = useState([{id: '1', name: 'raqueta HEAD', price: 100}]);
+
+
     const addItem = (product, quantity) => {
-        if (isInCart(product.id)) {
-            const updateCart = [...cart];
-            updateCart.forEach((element)=> {
-                if (element.cart.id === cart.id) {
-                    element.quantity = element.quantity + quantity;
-                }
-            })
-            setCart(updateCart);
-        } else {
-        setCart([...cart,{product, quantity}]);
+        const isInCart = cart.findIndex(i => i.product.id === product.id);
+            if (isInCart(product.id)) {
+                const updateCart = [...cart];
+                updateCart.forEach((product)=> {
+                    if (product.cart.id === cart.id) {
+                        product.quantity = product.quantity + quantity;
+                    }
+                })
+                changedCart(updateCart);
+            } else {
+            changedCart([...cart,{product, quantity}]);
+            }
         }
-    }
-    const isInCart = () => {
-        return cart.find(element=> element.cart.id===cart.id)
-    }
+        
+            // vaciar carrito
+            const clear = () => changedCart([]); 
+    
 
-    const iconCart = () => {
-        return cart.reduce( (acum, i) => acum + i.quantity, 0)
-    }
-
-    const clear = () => setCart([]);
-
-    const removeItem = (productId) => {
-        const cartFilter = cart.filter(element => element.product.id !== productId);
-        return setCart([...cartFilter]);
-    }
-
-    const totalPrice = () => {
-        return cart.reduce( (acum, valor) => (acum + (valor.quantity * valor.item.price)), 0)
-    }
+// Ultimo añadido
 
     return (
-        <CartContext.Provider value={{cart, clear, iconCart,totalPrice, addItem, removeItem}}>
+        <CartContext.Provider value={{
+            
+             clear,
+             cart,
+             changedCart,
+             addItem
+             }}>
             {children}
         </CartContext.Provider>
     )
 }
 
-
-export default CartContext
+export default CartContextProvider

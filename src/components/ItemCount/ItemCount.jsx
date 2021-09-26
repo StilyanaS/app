@@ -1,9 +1,12 @@
 import Button from 'react-bootstrap/Button';
 import {useState} from 'react';
 import {Link} from 'react-router-dom';
+import {CartContext} from '../../context/CartContext';
+import {useContext} from 'react'
 
-const ItemCount =  ({initial, stock, onAdd, addItem}) => {
+const ItemCount =  ({initial, stock, onAdd, product}) => {
   const [changeButton, setButton] = useState(true);
+  const {addItem} = useContext(CartContext);
 
         const [count, setCount] = useState(initial);
         const whenIncr = () => {
@@ -17,7 +20,7 @@ const ItemCount =  ({initial, stock, onAdd, addItem}) => {
                 setCount(count - 1);
             }
           };   
-          const handlerOnAdd = () => {
+          const handlerOnAdd = (count) => {
             onAdd(count);
             setCount(initial);
             setButton(false);
@@ -27,15 +30,22 @@ const ItemCount =  ({initial, stock, onAdd, addItem}) => {
          
 return (
     <div className='w-50'>
+      <div>
     <Button variant="primary" onClick={whenIncr}>+</Button>
     <label>{count}</label>
       <Button variant="primary" onClick={whenDecr}>-</Button>
+      </div>
+      <div>
       { changeButton ?
-    <Button variant="primary" onClick={handlerOnAdd}>Comprar</Button>:
+    <>
     <Link to={`/cart`}>
-    <Button variant="primary" >Carrito</Button>
+    <Button variant="primary">Carrito</Button>
       </Link>
-      }
+      <Button variant="primary" onClick={handlerOnAdd(product,count)}>Comprar</Button>
+    </>:
+      <Button variant="primary" onClick={handlerOnAdd(count)}>Comprar</Button>
+     } 
+     </div>
     </div>
   )
 }

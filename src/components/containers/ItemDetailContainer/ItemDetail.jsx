@@ -1,18 +1,16 @@
 
-import useCartContext from '../../../context/CartContext'
+import { CartContext } from '../../../context/CartContext'
  import ItemCount from '../../ItemCount/ItemCount';
+ import {useContext} from 'react';
 
 
 function ItemDetail({product}) {
+ const {cart,addItem, changedCart} = useContext(CartContext);
 
- const {addItem, clear, cart, removeItem, setAddedProduct} = useCartContext();
-console.log(cart);
-console.log(removeItem);
-console.log(setAddedProduct);
 
-    const onAdd = (quant, product) => {
-        console.log(quant);
-        addItem(product, quant);
+    const onAdd = (product, count) => {
+        addItem(product, count);
+        changedCart(cart);
     }
     return (
         
@@ -28,8 +26,8 @@ console.log(setAddedProduct);
             <div className='card-footer'>
                 <label>{product.price}</label>
             </div>
-            <ItemCount initial = {1} stock = {5} onAdd = {onAdd}/>
-            <button className='primary' onClick={clear}>Vaciar carrito</button>
+            <ItemCount initial = {1} stock = {5} onAdd = {onAdd} />
+           
 
         </div>
     )

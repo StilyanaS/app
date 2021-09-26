@@ -1,22 +1,29 @@
-//import Button from 'react-bootstrap/Button';
+import Button from 'react-bootstrap/Button';
 //import ItemCount from '../ItemCount/ItemCount';
-import {useCartContext} from '../../context/CartContext';
+import React, { useContext } from 'react';
+import { CartContext } from '../../context/CartContext';
 
 function Cart() {
-  
-    const {cart, clear, totalPrice} = useCartContext();
+ const {cart, changedCart, clear} = useContext(CartContext);
+   console.log(cart);
+   console.log(changedCart);
     return (
-       <>
-       
-        {cart.map(pro => <div>
-        <p>{pro.product.name}</p>
+        <div>
+           
+         {cart.map((pro) => (
+       <div>
+        <p>{pro.name}</p>
         <p>{pro.quantity}</p>
         </div>
-        )}
+         )
+        )
+         }
+        <Button onClick={clear}>Eliminar todo</Button> 
+    </div>
         
-        <button onClick={clear}>Eliminar productos</button>
-        {totalPrice}
-        </>
+    //     
+    //     {totalPrice} 
+   
         )
 }
 
